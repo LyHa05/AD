@@ -96,9 +96,9 @@ abstract class Puffer {
 	 */
 	public void add(Object data) {
 		assert(puffer != null && data != null && kapazitaet != inhalt());
-		int enthalteneElemente = inhalt();
+		int enthalteneElementeVorher = inhalt();
 		addImpl(data);
-		assert((enthalteneElemente + 1 == inhalt()) && !puffer.isEmpty());
+		assert((enthalteneElementeVorher + 1 == inhalt()) && !puffer.isEmpty());
 	}
 	
 	/**
@@ -117,12 +117,12 @@ abstract class Puffer {
 	 */
 	public void remove(Object data) {
 		assert(puffer != null && data != null && !empty());
-		int enthalteneElemente = inhalt();
-		int indexLetzesElemente = letztesElement;
+		int enthalteneElementeVorher = inhalt();
+		int indexLetzesElementeVorher = letztesElement;
 		removeImpl(data);
-		assert((enthalteneElemente - 1 == inhalt()) && 
-				(indexLetzesElemente + 1 == letztesElement ||
-				indexLetzesElemente - 1 == letztesElement));
+		assert((enthalteneElementeVorher - 1 == inhalt()) && 
+				(indexLetzesElementeVorher + 1 == letztesElement ||
+				indexLetzesElementeVorher - 1 == letztesElement));
 	}
 	
 	/**
