@@ -98,7 +98,7 @@ abstract class Puffer {
 		assert(puffer != null && data != null && kapazitaet != inhalt());
 		int enthalteneElemente = inhalt();
 		addImpl(data);
-		assert((enthalteneElemente + 1 == inhalt()) && puffer.isEmpty());
+		assert((enthalteneElemente + 1 == inhalt()) && !puffer.isEmpty());
 	}
 	
 	/**
