@@ -8,7 +8,7 @@ import java.util.ArrayList;
  *
  */
 
-abstract class Puffer {
+class Puffer {
 	
 	ArrayList<Object> puffer;
 	int kapazitaet;
@@ -65,7 +65,11 @@ abstract class Puffer {
 	 * 
 	 * @return ergebnis
 	 */
-	abstract int inhaltImpl(); 
+	private int inhaltImpl() {
+		int ergebnis = 0;
+		return ergebnis;
+		
+	}
 	
 	/**
 	 * Gibt true zurueck, wenn der Puffer leer ist, ansonsten false.
@@ -86,7 +90,9 @@ abstract class Puffer {
 	 * 
 	 * @return ergebnis
 	 */
-	abstract boolean emptyImpl();
+	private boolean emptyImpl() {
+		return false;
+	}
 	
 	/**
 	 * Fuegt Element in naechsten freien Position ein, wenn Puffer noch nicht voll ist.
@@ -106,8 +112,9 @@ abstract class Puffer {
 	 * 
 	 * @param data
 	 */
-	abstract void addImpl(Object data);
-	
+	private void addImpl(Object data) {
+		
+	}
 	
 	/**
 	 * Entfernt uebergebenes Element aus Puffer.
@@ -130,6 +137,9 @@ abstract class Puffer {
 	 * 
 	 * @param data
 	 */
-	abstract void removeImpl(Object data);
+	private void removeImpl(Object data) {
+		
+	}
+	
 
 }

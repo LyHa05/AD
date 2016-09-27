@@ -1,9 +1,9 @@
 package aufgabe01;
 
 import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
+import aufgabe01.Puffer;
 
 /**
  * @author Lydia Pflug, Lucas Anders
@@ -13,9 +13,11 @@ import org.junit.Test;
 
 public class JUnitPuffer {
 
+	private Puffer puffer;
+	
 	@Before
 	public void setUp() throws Exception {
-//		Puffer puffer = new Puffer(5);
+		puffer = new Puffer(5);
 	}
 
 	
@@ -27,12 +29,12 @@ public class JUnitPuffer {
 	 */
 	@Test
 	public void testInhalt() {
-		assertSame(puffer.size(),puffer.inhalt());
+		assertSame(0,puffer.inhalt());
 		puffer.add(1);
 		puffer.add(2);
-		assertSame(puffer.size(),puffer.inhalt());
+		assertSame(2,puffer.inhalt());
 		puffer.remove(1);
-		assertSame(puffer.size(),puffer.inhalt());
+		assertSame(1,puffer.inhalt());
 	}
 	
 	/**
