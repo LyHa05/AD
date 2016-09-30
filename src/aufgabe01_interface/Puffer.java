@@ -59,6 +59,11 @@ abstract class Puffer {
 		return ergebnis;
 	}
 	
+	
+	/**
+	 * @param Index
+	 * @return
+	 */
 	abstract Object get(int Index);
 
 	/**
