@@ -1,6 +1,6 @@
-package aufgabe01;
+package aufgabe01_interface;
 
-import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * @author Lydia Pflug, Lucas Anders
@@ -8,15 +8,14 @@ import java.util.ArrayList;
  *
  */
 
-class Puffer {
+abstract class Puffer {
 	
-	ArrayList<Object> puffer;
+	Collection<Object> puffer;
 	int kapazitaet;
 	int oberstesElement;
 	int letztesElement;
 		
 	public Puffer(int kapazitaet) {
-		puffer = new ArrayList<Object>();
 		this.kapazitaet = kapazitaet;
 		oberstesElement = 0;
 		letztesElement = 0;
@@ -51,23 +50,23 @@ class Puffer {
 			ergebnis = Math.abs(letztesElement - oberstesElement) + 1;
 		} else if (letztesElement < oberstesElement) {
 			ergebnis = letztesElement - oberstesElement;
-		} else if ((letztesElement == oberstesElement) && puffer.get(oberstesElement) == null){
+		} else if ((letztesElement == oberstesElement) && get(oberstesElement) == null){
 			ergebnis = 0;
-		} else if ((letztesElement == oberstesElement) && puffer.get(oberstesElement) != null){
+		} else if ((letztesElement == oberstesElement) && get(oberstesElement) != null){
 			ergebnis = 1;
 		}
 
 		return ergebnis;
 	}
+	
+	abstract Object get(int Index);
 
 	/**
 	 * Gibt die Anzahl der enthaltenen Elemente zurueck.
 	 * 
 	 * @return ergebnis
 	 */
-	private int inhaltImpl() {
-		return 0;
-	}
+	abstract int inhaltImpl();
 	
 	/**
 	 * Gibt true zurueck, wenn der Puffer leer ist, ansonsten false.
@@ -88,9 +87,7 @@ class Puffer {
 	 * 
 	 * @return ergebnis
 	 */
-	private boolean emptyImpl() {
-		return false;
-	}
+	abstract boolean emptyImpl();
 	
 	/**
 	 * Fuegt Element in naechsten freien Position ein, wenn Puffer noch nicht voll ist.
@@ -110,8 +107,7 @@ class Puffer {
 	 * 
 	 * @param data
 	 */
-	private void addImpl(Object data) {
-	}
+	abstract void addImpl(Object data);
 	
 	/**
 	 * Entfernt uebergebenes Element aus Puffer.
@@ -134,9 +130,7 @@ class Puffer {
 	 * 
 	 * @param data
 	 */
-	private void removeImpl(Object data) {
-		
-	}
+	abstract void removeImpl(Object data);
 	
 
 }
