@@ -1,4 +1,4 @@
-package aufgabe01_interface;
+package aufgabe02;
 
 import java.util.Collection;
 

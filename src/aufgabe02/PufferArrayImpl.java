@@ -1,5 +1,5 @@
 package aufgabe02;
 
-public class PufferArrayImpl {
+public class PufferArrayImpl implements aufgabe01_interface.Puffer{
 
 }
