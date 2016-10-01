@@ -9,13 +9,7 @@ import java.util.Collection;
  */
 
 public interface Puffer {
-
-	int kapazitaet();
-
-	int oberstesElement();
-
-	int letztesElement();
-
+	
 	/**
 	 * Gibt die Anzahl der enthaltenen Elemente zurueck.
 	 * 
@@ -32,7 +26,7 @@ public interface Puffer {
 	 * @param Index
 	 * @return
 	 */
-	public Object get(int Index);
+	public Object get(int index);
 
 	/**
 	 * Gibt true zurueck, wenn der Puffer leer ist, ansonsten false.
