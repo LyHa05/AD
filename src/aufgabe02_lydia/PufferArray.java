@@ -28,7 +28,6 @@ abstract class PufferArray {
 	public int inhalt() {
 		assert(puffer != null);
 		int ergebnis = inhaltImpl();
-		System.out.println("Ergebnis: " + ergebnis);
 		assert(!empty() || ergebnis == 0);
 		return ergebnis;
 	}
@@ -39,28 +38,6 @@ abstract class PufferArray {
 	 * @return ergebnis
 	 */
 	abstract int inhaltImpl();
-
-	/**
-	 * Berechnet die Anzahl der enthaltenen Elemente.
-	 * 
-	 * @return ergebnis
-	 */
-	public int size() {
-		
-		int ergebnis = 0;
-		
-		if (letztesElement > oberstesElement) {
-			ergebnis = Math.abs(letztesElement - oberstesElement) + 1;
-		} else if (letztesElement < oberstesElement) {
-			ergebnis = letztesElement - oberstesElement;
-		} else if ((letztesElement == oberstesElement) && get(oberstesElement) == null){
-			ergebnis = 0;
-		} else if ((letztesElement == oberstesElement) && get(oberstesElement) != null){
-			ergebnis = 1;
-		}
-
-		return ergebnis;
-	}
 	
 	/**
 	 * @param index

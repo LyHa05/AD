@@ -27,7 +27,6 @@ public class PufferArrayImpl extends PufferArray {
 
 	@Override
 	boolean emptyImpl() {
-		System.out.println("oberstesElement: " + oberstesElement);
 		if (puffer[oberstesElement] == null) {
 			return true;
 		}
