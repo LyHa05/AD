@@ -64,7 +64,7 @@ public class PufferLinkedListImpl extends PufferLinkedList {
 			        	oberstesElement = 0;
 			        // kein Pufferueberschlag
 			        } else {
-			            --oberstesElement;
+			            ++oberstesElement;
 			        }
 				// letztes Element oder aus Mitte entfernt
 				} else {
