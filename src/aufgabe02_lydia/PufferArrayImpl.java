@@ -14,11 +14,20 @@ public class PufferArrayImpl extends PufferArray {
 
 	@Override
 	int inhaltImpl() {
-		return size();
+		int anzahl = 0;
+		
+		for (Object element : puffer) {
+			if (element != null) {
+				++anzahl;
+			}
+		}
+		
+		return anzahl;
 	}
 
 	@Override
 	boolean emptyImpl() {
+		System.out.println("oberstesElement: " + oberstesElement);
 		if (puffer[oberstesElement] == null) {
 			return true;
 		}
@@ -27,12 +36,18 @@ public class PufferArrayImpl extends PufferArray {
 
 	@Override
 	void addImpl(Object data) {
-		puffer[(letztesElement + 1)] = data;
-        if(letztesElement == puffer.length-1){
-        	letztesElement = 0;
-        } else {
-        	++letztesElement;
-        }
+		// erstes Element
+		if (empty()) {
+			puffer[letztesElement] = data;
+		// weitere Elemente
+		} else {
+			if(letztesElement == puffer.length-1){
+	        	letztesElement = 0;
+	        } else {
+	        	++letztesElement;
+	        }
+			puffer[letztesElement] = data;
+		}       
 	}
 
 	@Override
@@ -46,17 +61,17 @@ public class PufferArrayImpl extends PufferArray {
 				if (index == oberstesElement) {
 					puffer[index] = null;
 					// Pufferueberschlag
-			        if(oberstesElement == size()-1) {
+			        if(oberstesElement == puffer.length-1) {
 			        	oberstesElement = 0;
 			        // kein Pufferueberschlag
 			        } else {
-			            --oberstesElement;
+			            ++oberstesElement;
 			        }
 				// letztes Element oder aus Mitte entfernt
 				} else {
 					puffer[index] = null;
 					// Pufferueberschlag
-			        if(letztesElement == size()-1) {
+			        if(letztesElement == puffer.length-1) {
 			            letztesElement = 0;
 			        // kein Pufferueberschlag
 			        } else {

@@ -34,7 +34,9 @@ public class PufferLinkedListImpl extends PufferLinkedList {
 	}
 
 	@Override
+
 	boolean emptyImpl() {
+		System.out.println("oberstesElement: " + oberstesElement);
 		return puffer.isEmpty();
 	}
 
