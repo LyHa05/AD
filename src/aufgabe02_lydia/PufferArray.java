@@ -1,5 +1,7 @@
 package aufgabe02_lydia;
 
+import java.util.Arrays;
+
 /**
  * @author Lydia Pflug, Lucas Anders
  * @date 26.09.2016
@@ -98,6 +100,12 @@ abstract class PufferArray {
 		int enthalteneElementeVorher = inhalt();
 		int indexLetzesElementeVorher = letztesElement;
 		removeImpl(data);
+		System.out.println("enthalteneElementeVorher: " + enthalteneElementeVorher);
+		System.out.println("indexLetzesElementeVorher: " + indexLetzesElementeVorher);
+		System.out.println("inhalt(): " + inhalt());
+		System.out.println("letztesElement: " + letztesElement);
+		System.out.println("oberstesElement: " + oberstesElement);
+		System.out.println(Arrays.toString(puffer));
 		assert((enthalteneElementeVorher - 1 == inhalt()) && 
 				(indexLetzesElementeVorher - 1 == letztesElement ||
 				indexLetzesElementeVorher == letztesElement ||

@@ -165,16 +165,14 @@ public class JUnitPufferArray {
 		puffer.remove(2);
 		assertSame(0,puffer.oberstesElement);
 		assertSame(3,puffer.letztesElement);
-		System.out.println("__________");
 		puffer.add(5);
 		assertSame(0,puffer.oberstesElement);
 		assertSame(4,puffer.letztesElement);
-		System.out.println("__________");
 	}
 	
 	/**
 	 * Methode testet add() und remove() mit Entfernen
-	 * eines mittleren Elements und Hinzufuegen eines neuen.
+	 * des ersten Elements und Hinzufuegen am Ende.
 	 * 
 	 */
 	@Test
@@ -192,4 +190,55 @@ public class JUnitPufferArray {
 		assertSame(1,puffer.oberstesElement);
 		assertSame(4,puffer.letztesElement);	
 	}
+	
+	/**
+	 * Methode testet add() und remove() mit Entfernen
+	 * des Elements direkt vor Ueberschlag.
+	 * 
+	 */
+	@Test
+	public void testAddRemove4() {
+		puffer.add(0);
+		puffer.add(1);
+		puffer.add(2);
+		puffer.add(3);
+		puffer.add(4);
+		puffer.remove(0);
+		puffer.remove(1);
+		puffer.remove(2);
+		puffer.add(5);
+		puffer.add(6);
+		puffer.add(7);
+		assertSame(3,puffer.oberstesElement);
+		assertSame(2,puffer.letztesElement);
+		puffer.remove(4);
+		assertSame(3,puffer.oberstesElement);
+		assertSame(1,puffer.letztesElement);	
+	}
+
+	/**
+	 * Methode testet add() und remove() mit Entfernen
+	 * des Elements direkt nach Ueberschlag.
+	 * 
+	 */
+	@Test
+	public void testAddRemove5() {
+		puffer.add(0);
+		puffer.add(1);
+		puffer.add(2);
+		puffer.add(3);
+		puffer.add(4);
+		puffer.remove(0);
+		puffer.remove(1);
+		puffer.remove(2);
+		puffer.add(5);
+		puffer.add(6);
+		puffer.add(7);
+		assertSame(3,puffer.oberstesElement);
+		assertSame(2,puffer.letztesElement);
+		puffer.remove(5);
+		assertSame(3,puffer.oberstesElement);
+		assertSame(1,puffer.letztesElement);	
+	}
+
 }
