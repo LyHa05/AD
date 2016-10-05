@@ -70,8 +70,8 @@ public class PufferArrayImpl extends PufferArray {
 				} else {
 					puffer[index] = null;
 					// Pufferueberschlag
-			        if(letztesElement == 0) {
-			            letztesElement = puffer.length-1;
+//			        if(letztesElement == 0) {
+//			            letztesElement = puffer.length-1;
 //			            // Nachruecken der Elemente vor Ueberschlag
 //			            for (int i = index; i < puffer.length; i++) {
 //							
@@ -84,8 +84,8 @@ public class PufferArrayImpl extends PufferArray {
 ////			            for (int i = 0; i < )
 			            
 			        // kein Pufferueberschlag
-			        } else {
-			            --letztesElement;
+//			        } else {
+//			            --letztesElement;
 			            // Nachruecken der Elemente
 //			            if(index != puffer.length-1) {
 //							for (int i = index; i < puffer.length; i++) {
@@ -94,21 +94,21 @@ public class PufferArrayImpl extends PufferArray {
 //							}
 //							puffer[puffer.length-1] = null;
 //						}
-			        }
+//			        }
 			        
-			    	// Nachruecken der Elemente ohne Ueberschlag
-			        if (((letztesElement + 1) > oberstesElement) || (index > 0)) {
-			        	for (int i = index; i < puffer.length; i++) {
+			    	// Nachruecken der Elemente ohne Ueberschlag bzw. Element nach Ueberschlag entnommen
+			        if (((letztesElement) > oberstesElement) || (index > 0)) {
+			        	for (int i = index; i < puffer.length-1; i++) {
 							
 							puffer[i] = puffer[i+1];
 						}
-						puffer[letztesElement + 1] = null;			        	
+						puffer[letztesElement] = null;			        	
 					// Nachruecken der Elemente mit Ueberschlag
 			        } else {
 
 						// Nachruecken der Elemente vor Ueberschlag
 			        	if (index != puffer.length-1) {
-			        		for (int i = index; i < puffer.length; i++) {
+			        		for (int i = index; i < puffer.length-1; i++) {
 			        			puffer[i] = puffer[i+1];
 			        		}
 			        	}
@@ -119,13 +119,21 @@ public class PufferArrayImpl extends PufferArray {
 			            puffer[0] = puffer[puffer.length-1];
 			            
 			            // Nachruecker der Elemente nach Ueberschlag
-			            for (int i = 0; i < (letztesElement + 1); i++) {
+			            for (int i = 0; i < (letztesElement); i++) {
 			            	puffer[i] = puffer[i+1];
 			            }
 			            
 			            // letztes verrutschtes Element null setzten
-			            puffer[letztesElement + 1] = null;
+			            puffer[letztesElement] = null;
 			            
+			        }
+			        
+			     // Pufferueberschlag
+			        if(letztesElement == 0) {
+			            letztesElement = puffer.length-1;
+			        // kein Pufferueberschlag
+			        } else {
+			            --letztesElement;
 			        }
 				}
 				
