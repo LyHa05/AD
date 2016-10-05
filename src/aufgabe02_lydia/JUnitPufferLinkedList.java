@@ -19,8 +19,6 @@ public class JUnitPufferLinkedList {
 	public void setUp() throws Exception {
 		puffer = new PufferLinkedListImpl(5);
 	}
-
-	
 	
 	/**
 	 * Methode testet inhalt() auf Grenzwerte
@@ -58,7 +56,7 @@ public class JUnitPufferLinkedList {
 	 * (hinzufuegen von Elementen, auch oberhalb der moeglichen
 	 * Kapazitaet)
 	 */
-	@Test
+	@Test(expected = AssertionError.class)
 	public void testAdd() {
 		assertTrue(puffer.inhalt() == 0);
 		puffer.add(1);
@@ -71,22 +69,24 @@ public class JUnitPufferLinkedList {
 		puffer.add(6);
 		assertTrue(puffer.inhalt() == 5);
 	}
-	
+		
 	/**
 	 * Methode testet remove() auf Grenzwerte
 	 * (entfernen von Elementen, auch
 	 * ohne das Element enthalten ist)
 	 */
-	@Test
+	@Test(expected = AssertionError.class)
 	public void testRemove() {
 		puffer.add(1);
 		assertTrue(puffer.inhalt() == 1);
 		puffer.remove(1);
 		assertTrue(puffer.inhalt() == 0);
 		puffer.add(2);
+		//Element 3 ist nicht enthalten
 		puffer.remove(3);
 		assertTrue(puffer.inhalt() == 1);
 		puffer.remove(2);
+		assertTrue(puffer.inhalt() == 0);
 	}
 
 }
