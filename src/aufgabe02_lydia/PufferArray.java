@@ -77,8 +77,6 @@ abstract class PufferArray {
 		assert(puffer != null && data != null && kapazitaet > inhalt());
 		int enthalteneElementeVorher = inhalt();
 		addImpl(data);
-		System.out.println("enthalteneElementeVorher: " + enthalteneElementeVorher);
-		System.out.println("inhalt(): " + inhalt());
 		assert((enthalteneElementeVorher + 1 == inhalt()) && !empty());
 	}
 	
@@ -100,12 +98,6 @@ abstract class PufferArray {
 		int enthalteneElementeVorher = inhalt();
 		int indexLetzesElementeVorher = letztesElement;
 		removeImpl(data);
-		System.out.println("enthalteneElementeVorher: " + enthalteneElementeVorher);
-		System.out.println("indexLetzesElementeVorher: " + indexLetzesElementeVorher);
-		System.out.println("inhalt(): " + inhalt());
-		System.out.println("letztesElement: " + letztesElement);
-		System.out.println("oberstesElement: " + oberstesElement);
-		System.out.println(Arrays.toString(puffer));
 		assert((enthalteneElementeVorher - 1 == inhalt()) && 
 				(indexLetzesElementeVorher - 1 == letztesElement ||
 				indexLetzesElementeVorher == letztesElement ||
@@ -128,18 +120,11 @@ abstract class PufferArray {
 	public String toString() {
 		String ausgabe = "";
 			
-//		if (!empty()) {
 			for (Object element : puffer) {
 				if (element != null) {
 					ausgabe = ausgabe + element.toString();
 				}
 			}
-//			for (int j = 0; j < puffer.length-1; j++) {
-//				System.out.println("j: " + j);
-//				System.out.println("ausgabe: " + ausgabe);
-//				ausgabe = ausgabe + puffer[j].toString();
-//			}
-//		}
 		
 		return ausgabe;
 		
