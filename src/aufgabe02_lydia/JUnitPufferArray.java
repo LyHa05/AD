@@ -14,7 +14,6 @@ import aufgabe02_lydia.PufferArrayImpl;
 public class JUnitPufferArray {
 
 	private PufferArray puffer;
-	private PufferArray puffer2;
 	
 	@Before
 	public void setUp() throws Exception {
