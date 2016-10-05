@@ -9,19 +9,19 @@ import java.util.Collection;
  *
  */
 
-abstract class PufferAbstract {
+abstract class PufferAbstractArray {
 	
-	Object puffer;
+	Object[] puffer;
 	int kapazitaet;
 	int oberstesElement;
 	int letztesElement;
 		
-//	public PufferAbstract(int kapazitaet) {
-//		this.kapazitaet = kapazitaet;
-//		oberstesElement = 0;
-//		letztesElement = 0;
-//	}
-//	
+	public PufferAbstractArray(int kapazitaet) {
+		this.kapazitaet = kapazitaet;
+		oberstesElement = 0;
+		letztesElement = 0;
+	}
+	
 	public abstract Object get(int index);
 	
 	/**
