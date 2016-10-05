@@ -9,19 +9,22 @@ public class PufferAbstractImplArray extends PufferAbstract {
 	private Object[] puffer;
 
 	public PufferAbstractImplArray(int kapazitaet) {
+		
 		this.puffer = new Object[kapazitaet];
 		this.kapazitaet = kapazitaet;
 		this.oberstesElement = 0;
 		this.letztesElement = 0;
 	}
 
-	/* 
-	 * Hierfür fehlt noch die Implementierung!
-	 */
 	@Override
 	protected int inhaltImpl() {
-		// TODO Auto-generated method stub
-		return 0;
+		int counter = 0;
+		for(Object o : puffer){
+			if(o != null){
+				counter++;
+			}
+		}
+		return counter;
 	}
 
 	@Override
@@ -40,9 +43,6 @@ public class PufferAbstractImplArray extends PufferAbstract {
 		if (letztesElement > (kapazitaet - 1)) {
 			letztesElement = letztesElement % kapazitaet;
 		}
-		// if(puffer[letztesElement] != null){
-		// throw Error;
-		// }
 		puffer[letztesElement] = data;
 	}
 

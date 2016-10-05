@@ -77,8 +77,8 @@ abstract class PufferAbstract {
 	public boolean empty() {
 		assert(puffer != null);
 		boolean ergebnis = emptyImpl();
-		assert((!puffer.empty() || inhalt() == 0) &&
-				(puffer.isEmpty() || inhalt() != 0));
+		assert((!empty() || inhalt() == 0) &&
+				(empty() || inhalt() != 0));
 		return ergebnis;
 	}
 	
@@ -99,7 +99,7 @@ abstract class PufferAbstract {
 		assert(puffer != null && data != null && kapazitaet != inhalt());
 		int enthalteneElementeVorher = inhalt();
 		addImpl(data);
-		assert((enthalteneElementeVorher + 1 == inhalt()) && !puffer.isEmpty());
+		assert((enthalteneElementeVorher + 1 == inhalt()) && !empty());
 	}
 	
 	/**
