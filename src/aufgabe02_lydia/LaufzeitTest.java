@@ -1,5 +1,7 @@
 package aufgabe02_lydia;
 
+import static org.junit.Assert.assertSame;
+
 import java.util.Arrays;
 
 public class LaufzeitTest {
@@ -33,33 +35,33 @@ public class LaufzeitTest {
 //		Array
 		
 		PufferArray pufferArray = new PufferArrayImpl(5);
-		pufferArray.add(1);
-		System.out.println(pufferArray);
-		System.out.println("head " + pufferArray.oberstesElement);
-		System.out.println("tail " + pufferArray.letztesElement);
-		pufferArray.add(2);
-		System.out.println(pufferArray);
-		System.out.println("head " + pufferArray.oberstesElement);
-		System.out.println("tail " + pufferArray.letztesElement);
-		pufferArray.remove(1);
-		System.out.println(pufferArray);
-		System.out.println("head " + pufferArray.oberstesElement);
-		System.out.println("tail " + pufferArray.letztesElement);
-		pufferArray.add(3);
-		System.out.println(pufferArray);
-		System.out.println("head " + pufferArray.oberstesElement);
-		System.out.println("tail " + pufferArray.letztesElement);
-		pufferArray.add(4);
-		System.out.println("head " + pufferArray.oberstesElement);
-		System.out.println("tail " + pufferArray.letztesElement);
-		pufferArray.add(5);
-		System.out.println(pufferArray);
-		System.out.println("head " + pufferArray.oberstesElement);
-		System.out.println("tail " + pufferArray.letztesElement);
-		pufferArray.add(6);
-		System.out.println(pufferArray);
-		System.out.println("head " + pufferArray.oberstesElement);
-		System.out.println("tail " + pufferArray.letztesElement);
+//		pufferArray.add(1);
+//		System.out.println(pufferArray);
+//		System.out.println("head " + pufferArray.oberstesElement);
+//		System.out.println("tail " + pufferArray.letztesElement);
+//		pufferArray.add(2);
+//		System.out.println(pufferArray);
+//		System.out.println("head " + pufferArray.oberstesElement);
+//		System.out.println("tail " + pufferArray.letztesElement);
+//		pufferArray.remove(1);
+//		System.out.println(pufferArray);
+//		System.out.println("head " + pufferArray.oberstesElement);
+//		System.out.println("tail " + pufferArray.letztesElement);
+//		pufferArray.add(3);
+//		System.out.println(pufferArray);
+//		System.out.println("head " + pufferArray.oberstesElement);
+//		System.out.println("tail " + pufferArray.letztesElement);
+//		pufferArray.add(4);
+//		System.out.println("head " + pufferArray.oberstesElement);
+//		System.out.println("tail " + pufferArray.letztesElement);
+//		pufferArray.add(5);
+//		System.out.println(pufferArray);
+//		System.out.println("head " + pufferArray.oberstesElement);
+//		System.out.println("tail " + pufferArray.letztesElement);
+//		pufferArray.add(6);
+//		System.out.println(pufferArray);
+//		System.out.println("head " + pufferArray.oberstesElement);
+//		System.out.println("tail " + pufferArray.letztesElement);
 //		System.out.println(pufferArray.kapazitaet);
 //		System.out.println(pufferArray.inhalt());
 //		pufferArray.add(7);
@@ -67,6 +69,16 @@ public class LaufzeitTest {
 //		System.out.println(pufferArray.kapazitaet);
 //		System.out.println(pufferArray.inhalt());
 //		
+		
+		pufferArray.add(0);
+		pufferArray.add(1);
+		pufferArray.add(2);
+		pufferArray.add(3);
+		pufferArray.add(4);
+		pufferArray.remove(2);
+		System.out.println("__________");
+		pufferArray.add(5);
+		System.out.println("__________");
 	}
 	
 }

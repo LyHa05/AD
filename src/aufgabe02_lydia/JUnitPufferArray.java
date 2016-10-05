@@ -125,5 +125,71 @@ public class JUnitPufferArray {
 		puffer.remove(null);
 		assertTrue(puffer.inhalt() == 1);
 	}
+
+	/**
+	 * Methode testet add() und remove() mit Entfernen
+	 * des ersten Elements und Hinzufuegen eines neuen.
+	 * 
+	 */
+	@Test
+	public void testAddRemove1() {
+		puffer.add(0);
+		puffer.add(1);
+		puffer.add(2);
+		puffer.add(3);
+		puffer.add(4);
+		assertSame(0,puffer.oberstesElement);
+		assertSame(4,puffer.letztesElement);
+		puffer.remove(0);
+		assertSame(1,puffer.oberstesElement);
+		assertSame(4,puffer.letztesElement);
+		puffer.add(5);
+		assertSame(1,puffer.oberstesElement);
+		assertSame(0,puffer.letztesElement);	
+	}
+
+	/**
+	 * Methode testet add() und remove() mit Entfernen
+	 * eines mittleren Elements und Hinzufuegen eines neuen.
+	 * 
+	 */
+	@Test
+	public void testAddRemove2() {
+		puffer.add(0);
+		puffer.add(1);
+		puffer.add(2);
+		puffer.add(3);
+		puffer.add(4);
+		assertSame(0,puffer.oberstesElement);
+		assertSame(4,puffer.letztesElement);
+		puffer.remove(2);
+		assertSame(0,puffer.oberstesElement);
+		assertSame(3,puffer.letztesElement);
+		System.out.println("__________");
+		puffer.add(5);
+		assertSame(0,puffer.oberstesElement);
+		assertSame(4,puffer.letztesElement);
+		System.out.println("__________");
+	}
 	
+	/**
+	 * Methode testet add() und remove() mit Entfernen
+	 * eines mittleren Elements und Hinzufuegen eines neuen.
+	 * 
+	 */
+	@Test
+	public void testAddRemove3() {
+		puffer.add(0);
+		puffer.add(1);
+		puffer.add(2);
+		puffer.add(3);
+		puffer.add(4);
+		puffer.remove(0);
+		puffer.add(5);
+		assertSame(1,puffer.oberstesElement);
+		assertSame(0,puffer.letztesElement);
+		puffer.remove(3);
+		assertSame(1,puffer.oberstesElement);
+		assertSame(4,puffer.letztesElement);	
+	}
 }

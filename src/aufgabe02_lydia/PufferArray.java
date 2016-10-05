@@ -75,6 +75,8 @@ abstract class PufferArray {
 		assert(puffer != null && data != null && kapazitaet > inhalt());
 		int enthalteneElementeVorher = inhalt();
 		addImpl(data);
+		System.out.println("enthalteneElementeVorher: " + enthalteneElementeVorher);
+		System.out.println("inhalt(): " + inhalt());
 		assert((enthalteneElementeVorher + 1 == inhalt()) && !empty());
 	}
 	
@@ -98,7 +100,8 @@ abstract class PufferArray {
 		removeImpl(data);
 		assert((enthalteneElementeVorher - 1 == inhalt()) && 
 				(indexLetzesElementeVorher - 1 == letztesElement ||
-				indexLetzesElementeVorher == letztesElement));
+				indexLetzesElementeVorher == letztesElement ||
+				letztesElement == puffer.length-1));
 	}
 	
 	/**
