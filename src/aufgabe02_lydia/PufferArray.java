@@ -28,8 +28,8 @@ abstract class PufferArray {
 	public int inhalt() {
 		assert(puffer != null);
 		int ergebnis = inhaltImpl();
-		assert((!empty() || ergebnis == 0) &&
-				(empty() || ergebnis == size()));
+		System.out.println("Ergebnis: " + ergebnis);
+		assert(!empty() || ergebnis == 0);
 		return ergebnis;
 	}
 	
@@ -77,7 +77,7 @@ abstract class PufferArray {
 	public boolean empty() {
 		assert(puffer != null);
 		boolean ergebnisEmpty = emptyImpl();
-		assert(!ergebnisEmpty || size() == 0);
+		assert(!ergebnisEmpty || puffer[oberstesElement] == null);
 		return ergebnisEmpty;
 	}
 	
@@ -139,9 +139,20 @@ abstract class PufferArray {
 	@Override
 	public String toString() {
 		String ausgabe = "";
-		for(Object element : puffer) {
-			ausgabe = ausgabe + element.toString();
-		}
+			
+//		if (!empty()) {
+			for (Object element : puffer) {
+				if (element != null) {
+					ausgabe = ausgabe + element.toString();
+				}
+			}
+//			for (int j = 0; j < puffer.length-1; j++) {
+//				System.out.println("j: " + j);
+//				System.out.println("ausgabe: " + ausgabe);
+//				ausgabe = ausgabe + puffer[j].toString();
+//			}
+//		}
+		
 		return ausgabe;
 		
 	}
