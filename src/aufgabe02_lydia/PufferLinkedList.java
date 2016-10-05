@@ -31,31 +31,32 @@ abstract class PufferLinkedList {
 		assert(puffer != null);
 		int ergebnis = inhaltImpl();
 		assert((!empty() || ergebnis == 0) &&
-				(empty() || ergebnis == inhaltBerechnet()));
+				(empty() || ergebnis == puffer.size()));
+//				(empty() || ergebnis == inhaltBerechnet()));
 		return ergebnis;
 	}
 	
-	/**
-	 * Berechnet die Anzahl der enthaltenen Elemente.
-	 * 
-	 * @return ergebnis
-	 */
-	private int inhaltBerechnet() {
-		
-		int ergebnis = 0;
-		
-		if (letztesElement > oberstesElement) {
-			ergebnis = Math.abs(letztesElement - oberstesElement) + 1;
-		} else if (letztesElement < oberstesElement) {
-			ergebnis = letztesElement - oberstesElement;
-		} else if ((letztesElement == oberstesElement) && get(oberstesElement) == null){
-			ergebnis = 0;
-		} else if ((letztesElement == oberstesElement) && get(oberstesElement) != null){
-			ergebnis = 1;
-		}
-
-		return ergebnis;
-	}
+//	/**
+//	 * Berechnet die Anzahl der enthaltenen Elemente.
+//	 * 
+//	 * @return ergebnis
+//	 */
+//	private int inhaltBerechnet() {
+//		
+//		int ergebnis = 0;
+//		
+//		if (letztesElement > oberstesElement) {
+//			ergebnis = Math.abs(letztesElement - oberstesElement) + 1;
+//		} else if (letztesElement < oberstesElement) {
+//			ergebnis = letztesElement - oberstesElement;
+//		} else if ((letztesElement == oberstesElement) && get(oberstesElement) == null){
+//			ergebnis = 0;
+//		} else if ((letztesElement == oberstesElement) && get(oberstesElement) != null){
+//			ergebnis = 1;
+//		}
+//
+//		return ergebnis;
+//	}
 	
 	/**
 	 * @param index
@@ -130,9 +131,16 @@ abstract class PufferLinkedList {
 		int enthalteneElementeVorher = inhalt();
 		int indexLetzesElementeVorher = letztesElement;
 		removeImpl(data);
+//		assert((enthalteneElementeVorher - 1 == inhalt()) && 
+//				(indexLetzesElementeVorher + 1 == letztesElement ||
+//				indexLetzesElementeVorher - 1 == letztesElement));
+		
+		System.out.println(indexLetzesElementeVorher);
+		System.out.println(letztesElement);
+		
 		assert((enthalteneElementeVorher - 1 == inhalt()) && 
-				(indexLetzesElementeVorher + 1 == letztesElement ||
-				indexLetzesElementeVorher - 1 == letztesElement));
+				(indexLetzesElementeVorher - 1 == letztesElement || 
+				indexLetzesElementeVorher == letztesElement));
 	}
 	
 	/**

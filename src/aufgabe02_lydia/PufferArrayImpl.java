@@ -53,6 +53,7 @@ public class PufferArrayImpl extends PufferArray {
 				}
 			}
 		}
+		--letztesElement;
 	}
 
 	@Override

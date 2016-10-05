@@ -44,21 +44,44 @@ public class PufferLinkedListImpl extends PufferLinkedList {
 	@Override
 	void addImpl(Object data) {
 		puffer.add(data);
-        if(oberstesElement == puffer.size()-1){
-        	oberstesElement = 0;
-        } else {
-        	++oberstesElement;
-        }
+//        if(oberstesElement == puffer.size()-1){
+//        	oberstesElement = 0;
+//        } else {
+//        	++oberstesElement;
+//        }
+		if(letztesElement == puffer.size()-1){
+			letztesElement = 0;
+		} else {
+			++letztesElement;
+		}
+		System.out.println("letztesElement: " + letztesElement);
 	}
 
 	@Override
 	void removeImpl(Object data) {
-		puffer.remove(data);
-        if(letztesElement == puffer.size()-1){
-            letztesElement = 0;
-        } else {
-            ++letztesElement;
-        }
+		
+		int index = 0;
+		
+		for (Object element : puffer) {
+			if (data.equals(element)) {
+				// erstes Element wird entfernt
+				if (index == oberstesElement) {
+					puffer.remove(data);
+					--oberstesElement;
+				// letztes Element oder aus Mitte entfernt
+				} else {
+					puffer.remove(data);
+					// Pufferueberschlag
+			        if(letztesElement == puffer.size()-1) {
+			            letztesElement = 0;
+			        // kein Pufferueberschlag
+			        } else {
+			            --letztesElement;
+			        }
+				}
+			}
+			++index;
+		}        
 	}
 
 	@Override
