@@ -31,18 +31,6 @@ public class Laufzeiterfassung {
 	}
 
 	/**
-	 * Berechnet die Anzahl der enthaltenen Elemente.
-	 * 
-	 * @return ergebnis
-	 */
-	public int sizeRuntime() {
-		long before = System.nanoTime();
-		int toReturn = pufferArray.size();
-		System.out.println(System.nanoTime() - before);
-		return toReturn;
-	}
-
-	/**
 	 * @param index
 	 * @return
 	 */
