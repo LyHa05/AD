@@ -14,11 +14,14 @@ public class LaufzeitTest {
 		pufferLinkedList.add(4);
 		pufferLinkedList.add(5);
 		System.out.println(pufferLinkedList);
-//		pufferLinkedList.add(6);
-//		pufferLinkedList.add(7);
+		pufferLinkedList.add(6);
 		System.out.println(pufferLinkedList);
 		System.out.println(pufferLinkedList.kapazitaet);
 		System.out.println(pufferLinkedList.inhalt());
+//		pufferLinkedList.add(7);
+//		System.out.println(pufferLinkedList);
+//		System.out.println(pufferLinkedList.kapazitaet);
+//		System.out.println(pufferLinkedList.inhalt());
 	}
 	
 }

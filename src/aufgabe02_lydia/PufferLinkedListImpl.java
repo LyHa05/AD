@@ -35,26 +35,17 @@ public class PufferLinkedListImpl extends PufferLinkedList {
 
 	@Override
 	boolean emptyImpl() {
-		if (puffer.size() == 0) {
-			return true;
-		}
-		return false;
+		return puffer.isEmpty();
 	}
 
 	@Override
 	void addImpl(Object data) {
 		puffer.add(data);
-//        if(oberstesElement == puffer.size()-1){
-//        	oberstesElement = 0;
-//        } else {
-//        	++oberstesElement;
-//        }
 		if(letztesElement == puffer.size()-1){
 			letztesElement = 0;
 		} else {
 			++letztesElement;
 		}
-		System.out.println("letztesElement: " + letztesElement);
 	}
 
 	@Override
@@ -82,11 +73,6 @@ public class PufferLinkedListImpl extends PufferLinkedList {
 			}
 			++index;
 		}        
-	}
-
-	@Override
-	boolean isEmpty() {
-		return puffer.isEmpty();
 	}
 
 }

@@ -32,45 +32,22 @@ abstract class PufferLinkedList {
 		int ergebnis = inhaltImpl();
 		assert((!empty() || ergebnis == 0) &&
 				(empty() || ergebnis == puffer.size()));
-//				(empty() || ergebnis == inhaltBerechnet()));
 		return ergebnis;
 	}
 	
-//	/**
-//	 * Berechnet die Anzahl der enthaltenen Elemente.
-//	 * 
-//	 * @return ergebnis
-//	 */
-//	private int inhaltBerechnet() {
-//		
-//		int ergebnis = 0;
-//		
-//		if (letztesElement > oberstesElement) {
-//			ergebnis = Math.abs(letztesElement - oberstesElement) + 1;
-//		} else if (letztesElement < oberstesElement) {
-//			ergebnis = letztesElement - oberstesElement;
-//		} else if ((letztesElement == oberstesElement) && get(oberstesElement) == null){
-//			ergebnis = 0;
-//		} else if ((letztesElement == oberstesElement) && get(oberstesElement) != null){
-//			ergebnis = 1;
-//		}
-//
-//		return ergebnis;
-//	}
-	
-	/**
-	 * @param index
-	 * @return
-	 */
-	abstract Object get(int index);
-
 	/**
 	 * Gibt die Anzahl der enthaltenen Elemente zurueck.
 	 * 
 	 * @return ergebnis
 	 */
 	abstract int inhaltImpl();
-	
+
+	/**
+	 * @param index
+	 * @return
+	 */
+	abstract Object get(int index);
+
 	/**
 	 * Gibt true zurueck, wenn der Puffer leer ist, ansonsten false.
 	 * Methode mit Pruefung der Vor- und Nachbedingungen.
@@ -79,18 +56,10 @@ abstract class PufferLinkedList {
 	 */
 	public boolean empty() {
 		assert(puffer != null);
-		boolean ergebnis = emptyImpl();
-//		assert((!isEmpty() || inhalt() == 0) &&
-//				(isEmpty() || inhalt() != 0));
-		return ergebnis;
+		boolean ergebnisEmpty = emptyImpl();
+		assert(!ergebnisEmpty || puffer.size() == 0);
+		return ergebnisEmpty;
 	}
-	
-	/**
-	 * Gibt true zurueck, wenn der Puffer leer ist, ansonsten false.
-	 * 
-	 * @return ergebnis
-	 */
-	abstract boolean isEmpty();
 	
 	/**
 	 * Gibt true zurueck, wenn der Puffer leer ist, ansonsten false.
@@ -106,11 +75,10 @@ abstract class PufferLinkedList {
 	 * @param data
 	 */
 	public void add(Object data) {
-		assert(kapazitaet >= inhalt()): "zu viele Elemente enthalten";
-//		assert(puffer != null && data != null && kapazitaet >= inhalt()): "zu viele Elemente enthalten";
+		assert(puffer != null && data != null && kapazitaet > inhalt());
 		int enthalteneElementeVorher = inhalt();
 		addImpl(data);
-		assert((enthalteneElementeVorher + 1 == inhalt()) && !isEmpty());
+		assert((enthalteneElementeVorher + 1 == inhalt()) && !empty());
 	}
 	
 	/**
@@ -131,13 +99,6 @@ abstract class PufferLinkedList {
 		int enthalteneElementeVorher = inhalt();
 		int indexLetzesElementeVorher = letztesElement;
 		removeImpl(data);
-//		assert((enthalteneElementeVorher - 1 == inhalt()) && 
-//				(indexLetzesElementeVorher + 1 == letztesElement ||
-//				indexLetzesElementeVorher - 1 == letztesElement));
-		
-		System.out.println(indexLetzesElementeVorher);
-		System.out.println(letztesElement);
-		
 		assert((enthalteneElementeVorher - 1 == inhalt()) && 
 				(indexLetzesElementeVorher - 1 == letztesElement || 
 				indexLetzesElementeVorher == letztesElement));
@@ -164,9 +125,5 @@ abstract class PufferLinkedList {
 		return ausgabe;
 		
 	}
-	
-//	public int getKapazitaet() {
-//		return kapazitaet;
-//	}
-	
+		
 }

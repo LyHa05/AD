@@ -61,11 +61,15 @@ public class JUnitPufferLinkedList {
 		assertTrue(puffer.inhalt() == 0);
 		puffer.add(1);
 		assertTrue(puffer.inhalt() == 1);
+		// null in Liste speichern
+		puffer.add(null);
+		assertTrue(puffer.inhalt() == 1);
 		puffer.add(2);
 		puffer.add(3);
 		puffer.add(4);
 		puffer.add(5);
 		assertTrue(puffer.inhalt() == 5);
+		// mehr Elemente als Kapazitaet speichern
 		puffer.add(6);
 		assertTrue(puffer.inhalt() == 5);
 	}
