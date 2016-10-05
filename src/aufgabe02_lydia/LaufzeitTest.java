@@ -3,6 +3,9 @@ package aufgabe02_lydia;
 public class LaufzeitTest {
 
 	public static void main(String[] args) {
+		
+//		LinkedList
+		
 		PufferLinkedList pufferLinkedList = new PufferLinkedListImpl(5);
 		pufferLinkedList.add(1);
 		System.out.println(pufferLinkedList);
@@ -22,6 +25,11 @@ public class LaufzeitTest {
 //		System.out.println(pufferLinkedList);
 //		System.out.println(pufferLinkedList.kapazitaet);
 //		System.out.println(pufferLinkedList.inhalt());
+		
+//		Array
+		
+		
+		
 	}
 	
 }

@@ -2,8 +2,6 @@ package aufgabe02_lydia;
 
 public class PufferArrayImpl extends PufferArray {
 	
-//	private Object[] puffer;
-
 	public PufferArrayImpl(int kapazitaet) {
 		super(kapazitaet);
 		this.puffer = new Object[kapazitaet];
@@ -16,7 +14,7 @@ public class PufferArrayImpl extends PufferArray {
 
 	@Override
 	int inhaltImpl() {
-		return this.kapazitaet;
+		return size();
 	}
 
 	@Override
@@ -30,38 +28,44 @@ public class PufferArrayImpl extends PufferArray {
 	@Override
 	void addImpl(Object data) {
 		puffer[(letztesElement + 1)] = data;
-        if(oberstesElement == puffer.length-1){
-        	oberstesElement = 0;
+        if(letztesElement == puffer.length-1){
+        	letztesElement = 0;
         } else {
-        	++oberstesElement;
+        	++letztesElement;
         }
 	}
 
 	@Override
 	void removeImpl(Object data) {
-		for (int i = 0; i < puffer.length; i++) {
-			Object element = puffer[i];
-			if (element.equals(data)) {
-				puffer[i] = null;
-				if (i != letztesElement) {
-					int j = i;
-					// verschieben des Indexs
-					do {
-						puffer[j] = puffer[j+1]; 
-						++j;
-					} while (j != puffer.length-1);
+		
+		int index = 0;
+		
+		for (Object element : puffer) {
+			if (data.equals(element)) {
+				// erstes Element entfernt
+				if (index == oberstesElement) {
+					puffer[index] = null;
+					// Pufferueberschlag
+			        if(oberstesElement == size()-1) {
+			        	oberstesElement = 0;
+			        // kein Pufferueberschlag
+			        } else {
+			            --oberstesElement;
+			        }
+				// letztes Element oder aus Mitte entfernt
+				} else {
+					puffer[index] = null;
+					// Pufferueberschlag
+			        if(letztesElement == size()-1) {
+			            letztesElement = 0;
+			        // kein Pufferueberschlag
+			        } else {
+			            --letztesElement;
+			        }
 				}
 			}
-		}
-		--letztesElement;
-	}
-
-	@Override
-	boolean isEmpty() {
-		if (puffer[oberstesElement] == null) {
-			return true;
-		}
-		return false;
+			++index;
+		} 
 	}
 
 }

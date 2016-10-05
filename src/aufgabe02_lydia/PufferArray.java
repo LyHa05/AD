@@ -29,16 +29,23 @@ abstract class PufferArray {
 		assert(puffer != null);
 		int ergebnis = inhaltImpl();
 		assert((!empty() || ergebnis == 0) &&
-				(empty() || ergebnis == inhaltBerechnet()));
+				(empty() || ergebnis == size()));
 		return ergebnis;
 	}
 	
+	/**
+	 * Gibt die Anzahl der enthaltenen Elemente zurueck.
+	 * 
+	 * @return ergebnis
+	 */
+	abstract int inhaltImpl();
+
 	/**
 	 * Berechnet die Anzahl der enthaltenen Elemente.
 	 * 
 	 * @return ergebnis
 	 */
-	private int inhaltBerechnet() {
+	public int size() {
 		
 		int ergebnis = 0;
 		
@@ -62,13 +69,6 @@ abstract class PufferArray {
 	abstract Object get(int index);
 
 	/**
-	 * Gibt die Anzahl der enthaltenen Elemente zurueck.
-	 * 
-	 * @return ergebnis
-	 */
-	abstract int inhaltImpl();
-	
-	/**
 	 * Gibt true zurueck, wenn der Puffer leer ist, ansonsten false.
 	 * Methode mit Pruefung der Vor- und Nachbedingungen.
 	 * 
@@ -76,18 +76,10 @@ abstract class PufferArray {
 	 */
 	public boolean empty() {
 		assert(puffer != null);
-		boolean ergebnis = emptyImpl();
-		assert((!isEmpty() || inhalt() == 0) &&
-				(isEmpty() || inhalt() != 0));
-		return ergebnis;
+		boolean ergebnisEmpty = emptyImpl();
+		assert(!ergebnisEmpty || size() == 0);
+		return ergebnisEmpty;
 	}
-	
-	/**
-	 * Gibt true zurueck, wenn der Puffer leer ist, ansonsten false.
-	 * 
-	 * @return ergebnis
-	 */
-	abstract boolean isEmpty();
 	
 	/**
 	 * Gibt true zurueck, wenn der Puffer leer ist, ansonsten false.
@@ -103,10 +95,10 @@ abstract class PufferArray {
 	 * @param data
 	 */
 	public void add(Object data) {
-		assert(puffer != null && data != null && kapazitaet != inhalt());
+		assert(puffer != null && data != null && kapazitaet > inhalt());
 		int enthalteneElementeVorher = inhalt();
 		addImpl(data);
-		assert((enthalteneElementeVorher + 1 == inhalt()) && !isEmpty());
+		assert((enthalteneElementeVorher + 1 == inhalt()) && !empty());
 	}
 	
 	/**
@@ -128,8 +120,8 @@ abstract class PufferArray {
 		int indexLetzesElementeVorher = letztesElement;
 		removeImpl(data);
 		assert((enthalteneElementeVorher - 1 == inhalt()) && 
-				(indexLetzesElementeVorher + 1 == letztesElement ||
-				indexLetzesElementeVorher - 1 == letztesElement));
+				(indexLetzesElementeVorher - 1 == letztesElement ||
+				indexLetzesElementeVorher == letztesElement));
 	}
 	
 	/**

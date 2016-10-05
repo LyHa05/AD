@@ -55,10 +55,15 @@ public class PufferLinkedListImpl extends PufferLinkedList {
 		
 		for (Object element : puffer) {
 			if (data.equals(element)) {
-				// erstes Element wird entfernt
+				// erstes Element entfernt
 				if (index == oberstesElement) {
 					puffer.remove(data);
-					--oberstesElement;
+			        if(oberstesElement == puffer.size()-1) {
+			        	oberstesElement = 0;
+			        // kein Pufferueberschlag
+			        } else {
+			            --oberstesElement;
+			        }
 				// letztes Element oder aus Mitte entfernt
 				} else {
 					puffer.remove(data);
