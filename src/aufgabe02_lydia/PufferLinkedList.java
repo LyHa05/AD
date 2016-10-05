@@ -79,8 +79,8 @@ abstract class PufferLinkedList {
 	public boolean empty() {
 		assert(puffer != null);
 		boolean ergebnis = emptyImpl();
-		assert((!isEmpty() || inhalt() == 0) &&
-				(isEmpty() || inhalt() != 0));
+//		assert((!isEmpty() || inhalt() == 0) &&
+//				(isEmpty() || inhalt() != 0));
 		return ergebnis;
 	}
 	
@@ -105,7 +105,8 @@ abstract class PufferLinkedList {
 	 * @param data
 	 */
 	public void add(Object data) {
-		assert(puffer != null && data != null && kapazitaet != inhalt());
+		assert(kapazitaet >= inhalt()): "zu viele Elemente enthalten";
+//		assert(puffer != null && data != null && kapazitaet >= inhalt()): "zu viele Elemente enthalten";
 		int enthalteneElementeVorher = inhalt();
 		addImpl(data);
 		assert((enthalteneElementeVorher + 1 == inhalt()) && !isEmpty());
@@ -141,4 +142,23 @@ abstract class PufferLinkedList {
 	 */
 	abstract void removeImpl(Object data);
 
+	/**
+	 * Methode gibt String mit enthaltenen Elementen im Puffer zurueck.
+	 * 
+	 * @return Elemente im Puffer als String
+	 */
+	@Override
+	public String toString() {
+		String ausgabe = "";
+		for(Object element : puffer) {
+			ausgabe = ausgabe + element.toString();
+		}
+		return ausgabe;
+		
+	}
+	
+//	public int getKapazitaet() {
+//		return kapazitaet;
+//	}
+	
 }

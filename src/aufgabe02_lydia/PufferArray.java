@@ -139,4 +139,18 @@ abstract class PufferArray {
 	 */
 	abstract void removeImpl(Object data);
 
+	/**
+	 * Methode gibt String mit enthaltenen Elementen im Puffer zurueck.
+	 * 
+	 * @return Elemente im Puffer als String
+	 */
+	@Override
+	public String toString() {
+		String ausgabe = "";
+		for(Object element : puffer) {
+			ausgabe = ausgabe + element.toString();
+		}
+		return ausgabe;
+		
+	}
 }
