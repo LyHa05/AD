@@ -1,7 +1,5 @@
 package aufgabe02_lydia;
 
-import java.lang.reflect.Array;
-
 public class PufferArrayImpl extends PufferArray {
 	
 //	private Object[] puffer;
@@ -46,13 +44,15 @@ public class PufferArrayImpl extends PufferArray {
 			if (element.equals(data)) {
 				puffer[i] = null;
 				if (i != letztesElement) {
-					//TODO Index verschieben
-//					while
+					int j = i;
+					// verschieben des Indexs
+					do {
+						puffer[j] = puffer[j+1]; 
+						++j;
+					} while (j != puffer.length-1);
 				}
 			}
 		}
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

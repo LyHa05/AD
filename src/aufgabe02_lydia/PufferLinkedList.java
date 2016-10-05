@@ -21,7 +21,6 @@ abstract class PufferLinkedList {
 		letztesElement = 0;
 	}
 	
-	
 	/**
 	 * Gibt die Anzahl der enthaltenen Elemente zurueck.
 	 * Methode mit Pruefung der Vor- und Nachbedingungen.
@@ -35,7 +34,6 @@ abstract class PufferLinkedList {
 				(empty() || ergebnis == inhaltBerechnet()));
 		return ergebnis;
 	}
-	
 	
 	/**
 	 * Berechnet die Anzahl der enthaltenen Elemente.
@@ -58,7 +56,6 @@ abstract class PufferLinkedList {
 
 		return ergebnis;
 	}
-	
 	
 	/**
 	 * @param index
@@ -87,6 +84,11 @@ abstract class PufferLinkedList {
 		return ergebnis;
 	}
 	
+	/**
+	 * Gibt true zurueck, wenn der Puffer leer ist, ansonsten false.
+	 * 
+	 * @return ergebnis
+	 */
 	abstract boolean isEmpty();
 	
 	/**
@@ -138,6 +140,5 @@ abstract class PufferLinkedList {
 	 * @param data
 	 */
 	abstract void removeImpl(Object data);
-	
 
 }
