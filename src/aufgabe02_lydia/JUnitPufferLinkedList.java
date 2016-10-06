@@ -185,6 +185,7 @@ public class JUnitPufferLinkedList {
 		puffer.add(5);
 		assertSame(1,puffer.oberstesElement);
 		assertSame(0,puffer.letztesElement);
+		System.out.println("______________");
 		puffer.remove(3);
 		assertSame(1,puffer.oberstesElement);
 		assertSame(4,puffer.letztesElement);	
