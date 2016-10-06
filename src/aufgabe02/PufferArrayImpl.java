@@ -1,4 +1,4 @@
-package aufgabe02_lydia;
+package aufgabe02;
 
 /**
  * @author Lydia Pflug, Lucas Anders

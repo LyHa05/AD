@@ -1,4 +1,6 @@
-package aufgabe02_lydia;
+package aufgabe02;
+
+import java.util.LinkedList;
 
 /**
  * @author Lydia Pflug, Lucas Anders
@@ -6,14 +8,14 @@ package aufgabe02_lydia;
  *
  */
 
-abstract class PufferArray {
+abstract class PufferLinkedList {
 	
-	Object[] puffer;
+	LinkedList<Object> puffer;
 	int kapazitaet;
 	int oberstesElement;
 	int letztesElement;
 		
-	public PufferArray(int kapazitaet) {
+	public PufferLinkedList(int kapazitaet) {
 		this.kapazitaet = kapazitaet;
 		oberstesElement = 0;
 		letztesElement = 0;
@@ -28,7 +30,8 @@ abstract class PufferArray {
 	public int inhalt() {
 		assert(puffer != null);
 		int ergebnis = inhaltImpl();
-		assert(!empty() || ergebnis == 0);
+		assert((!empty() || ergebnis == 0) &&
+				(empty() || ergebnis == puffer.size()));
 		return ergebnis;
 	}
 	
@@ -38,7 +41,7 @@ abstract class PufferArray {
 	 * @return ergebnis
 	 */
 	abstract int inhaltImpl();
-	
+
 	/**
 	 * @param index
 	 * @return
@@ -54,7 +57,7 @@ abstract class PufferArray {
 	public boolean empty() {
 		assert(puffer != null);
 		boolean ergebnisEmpty = emptyImpl();
-		assert(!ergebnisEmpty || puffer[oberstesElement] == null);
+		assert(!ergebnisEmpty || puffer.size() == 0);
 		return ergebnisEmpty;
 	}
 	
@@ -97,9 +100,9 @@ abstract class PufferArray {
 		int indexLetzesElementeVorher = letztesElement;
 		removeImpl(data);
 		assert((enthalteneElementeVorher - 1 == inhalt()) && 
-				(indexLetzesElementeVorher - 1 == letztesElement ||
+				(indexLetzesElementeVorher - 1 == letztesElement || 
 				indexLetzesElementeVorher == letztesElement ||
-				letztesElement == puffer.length-1));
+				letztesElement == kapazitaet-1));
 	}
 	
 	/**
@@ -117,14 +120,11 @@ abstract class PufferArray {
 	@Override
 	public String toString() {
 		String ausgabe = "";
-			
-			for (Object element : puffer) {
-				if (element != null) {
-					ausgabe = ausgabe + element.toString();
-				}
-			}
-		
+		for(Object element : puffer) {
+			ausgabe = ausgabe + element.toString();
+		}
 		return ausgabe;
 		
 	}
+		
 }

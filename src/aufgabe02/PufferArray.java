@@ -1,6 +1,4 @@
-package aufgabe02_lydia;
-
-import java.util.LinkedList;
+package aufgabe02;
 
 /**
  * @author Lydia Pflug, Lucas Anders
@@ -8,14 +6,14 @@ import java.util.LinkedList;
  *
  */
 
-abstract class PufferLinkedList {
+abstract class PufferArray {
 	
-	LinkedList<Object> puffer;
+	Object[] puffer;
 	int kapazitaet;
 	int oberstesElement;
 	int letztesElement;
 		
-	public PufferLinkedList(int kapazitaet) {
+	public PufferArray(int kapazitaet) {
 		this.kapazitaet = kapazitaet;
 		oberstesElement = 0;
 		letztesElement = 0;
@@ -30,8 +28,7 @@ abstract class PufferLinkedList {
 	public int inhalt() {
 		assert(puffer != null);
 		int ergebnis = inhaltImpl();
-		assert((!empty() || ergebnis == 0) &&
-				(empty() || ergebnis == puffer.size()));
+		assert(!empty() || ergebnis == 0);
 		return ergebnis;
 	}
 	
@@ -41,7 +38,7 @@ abstract class PufferLinkedList {
 	 * @return ergebnis
 	 */
 	abstract int inhaltImpl();
-
+	
 	/**
 	 * @param index
 	 * @return
@@ -57,7 +54,7 @@ abstract class PufferLinkedList {
 	public boolean empty() {
 		assert(puffer != null);
 		boolean ergebnisEmpty = emptyImpl();
-		assert(!ergebnisEmpty || puffer.size() == 0);
+		assert(!ergebnisEmpty || puffer[oberstesElement] == null);
 		return ergebnisEmpty;
 	}
 	
@@ -100,9 +97,9 @@ abstract class PufferLinkedList {
 		int indexLetzesElementeVorher = letztesElement;
 		removeImpl(data);
 		assert((enthalteneElementeVorher - 1 == inhalt()) && 
-				(indexLetzesElementeVorher - 1 == letztesElement || 
+				(indexLetzesElementeVorher - 1 == letztesElement ||
 				indexLetzesElementeVorher == letztesElement ||
-				letztesElement == kapazitaet-1));
+				letztesElement == puffer.length-1));
 	}
 	
 	/**
@@ -120,11 +117,14 @@ abstract class PufferLinkedList {
 	@Override
 	public String toString() {
 		String ausgabe = "";
-		for(Object element : puffer) {
-			ausgabe = ausgabe + element.toString();
-		}
+			
+			for (Object element : puffer) {
+				if (element != null) {
+					ausgabe = ausgabe + element.toString();
+				}
+			}
+		
 		return ausgabe;
 		
 	}
-		
 }

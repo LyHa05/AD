@@ -1,4 +1,4 @@
-package aufgabe02_lydia;
+package aufgabe02;
 
 import java.lang.reflect.Method;
 
@@ -6,18 +6,19 @@ import java.lang.reflect.Method;
  * @author Lucas Anders, Lydia Pflug
  * @date 06.10.2016
  * Die Klasse beinhaltet Wrappermethoden, die die eigentliche Methode aufrufen und deren Laufzeit zurückgibt.
+ *
  */
-public class LaufzeiterfassungLinkedList {
+public class LaufzeiterfassungArray {
 
-	PufferLinkedList pufferLinkedList;
+	PufferArray pufferArray;
 
-	public LaufzeiterfassungLinkedList(PufferLinkedList pufferLinkedList) {
-		this.pufferLinkedList = pufferLinkedList;
+	public LaufzeiterfassungArray(PufferArray pufferArray) {
+		this.pufferArray = pufferArray;
 	}
 
-	public long pufferLinkedListRuntime(int kapazitaet) {
+	public long pufferArrayRuntime(int kapazitaet) {
 		long before = System.nanoTime();
-		new PufferLinkedListImpl(kapazitaet);
+		new PufferArrayImpl(kapazitaet);
 //		System.out.println("Konstruktor: " + (System.nanoTime() - before) + " ms");
 		return System.nanoTime() - before;
 	}
@@ -30,7 +31,7 @@ public class LaufzeiterfassungLinkedList {
 	 */
 	public long inhaltRuntime() {
 		long before = System.nanoTime();
-		pufferLinkedList.inhalt();
+		pufferArray.inhalt();
 //		System.out.println("Inhalt: " + (System.nanoTime() - before) + " ms");
 		return System.nanoTime() - before;
 	}
@@ -41,7 +42,7 @@ public class LaufzeiterfassungLinkedList {
 	 */
 	public long getRuntime(int index) {
 		long before = System.nanoTime();
-		pufferLinkedList.get(index);
+		pufferArray.get(index);
 //		System.out.println("get: " + (System.nanoTime() - before) + " ms");
 		return System.nanoTime() - before;
 
@@ -55,7 +56,7 @@ public class LaufzeiterfassungLinkedList {
 	 */
 	public long emptyRuntime() {
 		long before = System.nanoTime();
-		pufferLinkedList.empty();
+		pufferArray.empty();
 //		System.out.println("Empty: " + (System.nanoTime() - before) + " ms");
 		return System.nanoTime() - before;
 	}
@@ -68,7 +69,7 @@ public class LaufzeiterfassungLinkedList {
 	 */
 	public long addRuntime(Object data) {
 		long before = System.nanoTime();
-		pufferLinkedList.add(data);
+		pufferArray.add(data);
 //		System.out.println("Add: " + (System.nanoTime() - before) + " ms");
 		return System.nanoTime() - before;
 	}
@@ -81,7 +82,7 @@ public class LaufzeiterfassungLinkedList {
 	 */
 	public long removeRuntime(Object data) {
 		long before = System.nanoTime();
-		pufferLinkedList.remove(data);
+		pufferArray.remove(data);
 //		System.out.println("Remove: " + (System.nanoTime() - before) + " ms");
 		return System.nanoTime() - before;
 	}
