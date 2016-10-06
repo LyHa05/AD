@@ -69,7 +69,7 @@ public class PufferLinkedListImpl extends PufferLinkedList {
 			if (data.equals(element)) {
 				// erstes Element entfernt
 				if (	index == oberstesElement) {
-					if(oberstesElement == puffer.size()-1) {
+					if(oberstesElement == kapazitaet-1) {
 			        	oberstesElement = 0;
 			        // kein Pufferueberschlag
 			        } else {
@@ -80,7 +80,7 @@ public class PufferLinkedListImpl extends PufferLinkedList {
 					// Pufferueberschlag
 			        if(letztesElement == 0) {
 			        	System.out.println("alter Wert letztes: " + letztesElement);
-			            letztesElement = puffer.size()-1;
+			            letztesElement = kapazitaet-1;
 			            System.out.println("neuer Wert letztes: " + letztesElement);
 			        // kein Pufferueberschlag
 			        } else {
