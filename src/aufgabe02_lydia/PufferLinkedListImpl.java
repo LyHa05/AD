@@ -63,12 +63,12 @@ public class PufferLinkedListImpl extends PufferLinkedList {
 	@Override
 	void removeImpl(Object data) {
 		
-		int index = 0;
-		
+//		int index = 0;
 		for (Object element : puffer) {
 			if (data.equals(element)) {
 				// erstes Element entfernt
-				if (	index == oberstesElement) {
+				
+				if (puffer.getFirst() == data) {
 					if(oberstesElement == kapazitaet-1) {
 			        	oberstesElement = 0;
 			        // kein Pufferueberschlag
@@ -88,7 +88,7 @@ public class PufferLinkedListImpl extends PufferLinkedList {
 			        }
 				}
 			}
-			++index;
+//			++index;
 		}        
 		puffer.remove(data);
 	}

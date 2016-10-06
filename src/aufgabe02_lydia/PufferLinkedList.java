@@ -1,6 +1,7 @@
 package aufgabe02_lydia;
 
 import java.util.Collection;
+import java.util.LinkedList;
 
 /**
  * @author Lydia Pflug, Lucas Anders
@@ -10,7 +11,7 @@ import java.util.Collection;
 
 abstract class PufferLinkedList {
 	
-	Collection<Object> puffer;
+	LinkedList<Object> puffer;
 	int kapazitaet;
 	int oberstesElement;
 	int letztesElement;
