@@ -110,7 +110,7 @@ public class PufferArrayImpl extends PufferArray {
 			            --letztesElement;
 			        }
 				}
-				
+				break;
 			}
 			++index;
 		} 

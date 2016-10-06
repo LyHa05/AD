@@ -1,9 +1,5 @@
 package aufgabe02_lydia;
 
-import static org.junit.Assert.assertSame;
-
-import java.util.Arrays;
-
 public class DepricatedLaufzeitTest {
 
 	public static void main(String[] args) {
