@@ -71,7 +71,7 @@ public class PufferArrayImpl extends PufferArray {
 					puffer[index] = null;
 			       
 			    	// Nachruecken der Elemente ohne Ueberschlag bzw. Element nach Ueberschlag entnommen
-			        if (((letztesElement) > oberstesElement) || ((letztesElement) > oberstesElement && index > 0)) {
+			        if ((letztesElement > oberstesElement) || (letztesElement > oberstesElement && index < oberstesElement)) {
 			        	for (int i = index; i < puffer.length-1; i++) {
 							
 							puffer[i] = puffer[i+1];

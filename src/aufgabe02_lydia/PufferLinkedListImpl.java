@@ -42,12 +42,22 @@ public class PufferLinkedListImpl extends PufferLinkedList {
 
 	@Override
 	void addImpl(Object data) {
-		puffer.add(data);
-		if(letztesElement == puffer.size()-1){
-			letztesElement = 0;
+		// erstes Element
+		if(empty()) {
+			//letztesElement wird nicht verändert
+			puffer.add(data);
+		// weitere Elemente: mit Ueberschlag
 		} else {
-			++letztesElement;
+			if(letztesElement == kapazitaet-1) {
+				letztesElement = 0;
+				puffer.add(data);
+			// weitere Elemente: ohne Ueberschlag
+			} else {
+				++letztesElement;
+				puffer.add(data);
+			}
 		}
+//		puffer.add(data);
 	}
 
 	@Override
@@ -58,9 +68,8 @@ public class PufferLinkedListImpl extends PufferLinkedList {
 		for (Object element : puffer) {
 			if (data.equals(element)) {
 				// erstes Element entfernt
-				if (index == oberstesElement) {
-					puffer.remove(data);
-			        if(oberstesElement == puffer.size()-1) {
+				if (	index == oberstesElement) {
+					if(oberstesElement == kapazitaet-1) {
 			        	oberstesElement = 0;
 			        // kein Pufferueberschlag
 			        } else {
@@ -68,10 +77,11 @@ public class PufferLinkedListImpl extends PufferLinkedList {
 			        }
 				// letztes Element oder aus Mitte entfernt
 				} else {
-					puffer.remove(data);
 					// Pufferueberschlag
-			        if(letztesElement == puffer.size()-1) {
-			            letztesElement = 0;
+			        if(letztesElement == 0) {
+			        	System.out.println("alter Wert letztes: " + letztesElement);
+			            letztesElement = kapazitaet-1;
+			            System.out.println("neuer Wert letztes: " + letztesElement);
 			        // kein Pufferueberschlag
 			        } else {
 			            --letztesElement;
@@ -80,6 +90,7 @@ public class PufferLinkedListImpl extends PufferLinkedList {
 			}
 			++index;
 		}        
+		puffer.remove(data);
 	}
 
 }
