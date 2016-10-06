@@ -97,8 +97,7 @@ public class JUnitPufferLinkedList {
 		puffer.add(1);
 		assertTrue(puffer.inhalt() == 1);
 		puffer.remove(1);
-		assertTrue(puffer.inhalt() == 0);
-		
+		assertTrue(puffer.inhalt() == 0);	
 	}
 	
 	/**
@@ -125,4 +124,120 @@ public class JUnitPufferLinkedList {
 		puffer.remove(null);
 		assertTrue(puffer.inhalt() == 1);
 	}
+
+	/**
+	 * Methode testet add() und remove() mit Entfernen
+	 * des ersten Elements und Hinzufuegen eines neuen.
+	 * 
+	 */
+	@Test
+	public void testAddRemove1() {
+		puffer.add(0);
+		puffer.add(1);
+		puffer.add(2);
+		puffer.add(3);
+		puffer.add(4);
+		assertSame(0,puffer.oberstesElement);
+		assertSame(4,puffer.letztesElement);
+		puffer.remove(0);
+		assertSame(1,puffer.oberstesElement);
+		assertSame(4,puffer.letztesElement);
+		puffer.add(5);
+		assertSame(1,puffer.oberstesElement);
+		assertSame(0,puffer.letztesElement);	
+	}
+
+	/**
+	 * Methode testet add() und remove() mit Entfernen
+	 * eines mittleren Elements und Hinzufuegen eines neuen.
+	 * 
+	 */
+	@Test
+	public void testAddRemove2() {
+		puffer.add(0);
+		puffer.add(1);
+		puffer.add(2);
+		puffer.add(3);
+		puffer.add(4);
+		assertSame(0,puffer.oberstesElement);
+		assertSame(4,puffer.letztesElement);
+		puffer.remove(2);
+		assertSame(0,puffer.oberstesElement);
+		assertSame(3,puffer.letztesElement);
+		puffer.add(5);
+		assertSame(0,puffer.oberstesElement);
+		assertSame(4,puffer.letztesElement);
+	}
+	
+	/**
+	 * Methode testet add() und remove() mit Entfernen
+	 * des ersten Elements und Hinzufuegen am Ende.
+	 * 
+	 */
+	@Test
+	public void testAddRemove3() {
+		puffer.add(0);
+		puffer.add(1);
+		puffer.add(2);
+		puffer.add(3);
+		puffer.add(4);
+		puffer.remove(0);
+		puffer.add(5);
+		assertSame(1,puffer.oberstesElement);
+		assertSame(0,puffer.letztesElement);
+		puffer.remove(3);
+		assertSame(1,puffer.oberstesElement);
+		assertSame(4,puffer.letztesElement);	
+	}
+	
+	/**
+	 * Methode testet add() und remove() mit Entfernen
+	 * des Elements direkt vor Ueberschlag.
+	 * 
+	 */
+	@Test
+	public void testAddRemove4() {
+		puffer.add(0);
+		puffer.add(1);
+		puffer.add(2);
+		puffer.add(3);
+		puffer.add(4);
+		puffer.remove(0);
+		puffer.remove(1);
+		puffer.remove(2);
+		puffer.add(5);
+		puffer.add(6);
+		puffer.add(7);
+		assertSame(3,puffer.oberstesElement);
+		assertSame(2,puffer.letztesElement);
+		puffer.remove(4);
+		assertSame(3,puffer.oberstesElement);
+		assertSame(1,puffer.letztesElement);	
+	}
+
+	/**
+	 * Methode testet add() und remove() mit Entfernen
+	 * des Elements direkt nach Ueberschlag.
+	 * 
+	 */
+	@Test
+	public void testAddRemove5() {
+		puffer.add(0);
+		puffer.add(1);
+		puffer.add(2);
+		puffer.add(3);
+		puffer.add(4);
+		puffer.remove(0);
+		puffer.remove(1);
+		puffer.remove(2);
+		puffer.add(5);
+		puffer.add(6);
+		puffer.add(7);
+		assertSame(3,puffer.oberstesElement);
+		assertSame(2,puffer.letztesElement);
+		puffer.remove(5);
+		assertSame(3,puffer.oberstesElement);
+		assertSame(1,puffer.letztesElement);	
+	}
+
 }

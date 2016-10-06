@@ -4,7 +4,7 @@ import static org.junit.Assert.assertSame;
 
 import java.util.Arrays;
 
-public class LaufzeitTest {
+public class DepricatedLaufzeitTest {
 
 	public static void main(String[] args) {
 		
@@ -69,16 +69,36 @@ public class LaufzeitTest {
 //		System.out.println(pufferArray.kapazitaet);
 //		System.out.println(pufferArray.inhalt());
 //		
-		
 		pufferArray.add(0);
 		pufferArray.add(1);
 		pufferArray.add(2);
 		pufferArray.add(3);
 		pufferArray.add(4);
+		System.out.println(pufferArray);
+		pufferArray.remove(0);
+		pufferArray.remove(1);
 		pufferArray.remove(2);
-		System.out.println("__________");
+		System.out.println(pufferArray);
 		pufferArray.add(5);
-		System.out.println("__________");
+		pufferArray.add(6);
+		pufferArray.add(7);
+		System.out.println(pufferArray);
+		System.out.println("_____________");
+		pufferArray.remove(4);
+		System.out.println(pufferArray);
+		System.out.println("_____________");
+
+		
+//		
+//		pufferArray.add(0);
+//		pufferArray.add(1);
+//		pufferArray.add(2);
+//		pufferArray.add(3);
+//		pufferArray.add(4);
+//		pufferArray.remove(2);
+//		System.out.println("__________");
+//		pufferArray.add(5);
+//		System.out.println("__________");
 	}
 	
 }

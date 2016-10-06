@@ -1,5 +1,7 @@
 package aufgabe02_lydia;
 
+import java.util.Arrays;
+
 /**
  * @author Lydia Pflug, Lucas Anders
  * @date 26.09.2016
@@ -75,8 +77,6 @@ abstract class PufferArray {
 		assert(puffer != null && data != null && kapazitaet > inhalt());
 		int enthalteneElementeVorher = inhalt();
 		addImpl(data);
-		System.out.println("enthalteneElementeVorher: " + enthalteneElementeVorher);
-		System.out.println("inhalt(): " + inhalt());
 		assert((enthalteneElementeVorher + 1 == inhalt()) && !empty());
 	}
 	
@@ -120,18 +120,11 @@ abstract class PufferArray {
 	public String toString() {
 		String ausgabe = "";
 			
-//		if (!empty()) {
 			for (Object element : puffer) {
 				if (element != null) {
 					ausgabe = ausgabe + element.toString();
 				}
 			}
-//			for (int j = 0; j < puffer.length-1; j++) {
-//				System.out.println("j: " + j);
-//				System.out.println("ausgabe: " + ausgabe);
-//				ausgabe = ausgabe + puffer[j].toString();
-//			}
-//		}
 		
 		return ausgabe;
 		
