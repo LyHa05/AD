@@ -12,20 +12,7 @@ public class PufferLinkedListImpl extends PufferLinkedList {
 
 	@Override
 	Object get(int index) {
-		Iterator<Object> puffIter = puffer.iterator();
-		int zaehler = 0;
-		Object element = null;
-		
-		while (puffIter.hasNext()) {
-			
-			if (zaehler == index) {
-				element = puffIter.next();
-			}
-			
-			++zaehler;
-		}
-
-		return element;
+		return puffer.get(index);
 	}
 
 	@Override
