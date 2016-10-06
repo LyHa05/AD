@@ -17,7 +17,7 @@ public class JUnitPuffer {
 	
 	@Before
 	public void setUp() throws Exception {
-		puffer = new Puffer(5);
+//		puffer = new Puffer(5);
 	}
 
 	
