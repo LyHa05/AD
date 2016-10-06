@@ -1,6 +1,11 @@
 package aufgabe02_lydia;
 
-import java.util.Iterator;
+/**
+ * @author Lydia Pflug, Lucas Anders
+ * @date 06.10.2016
+ *
+ */
+
 import java.util.LinkedList;
 
 public class PufferLinkedListImpl extends PufferLinkedList {

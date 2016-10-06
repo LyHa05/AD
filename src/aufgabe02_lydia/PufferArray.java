@@ -2,7 +2,7 @@ package aufgabe02_lydia;
 
 /**
  * @author Lydia Pflug, Lucas Anders
- * @date 26.09.2016
+ * @date 06.10.2016
  *
  */
 

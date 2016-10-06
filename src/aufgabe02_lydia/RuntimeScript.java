@@ -2,6 +2,7 @@ package aufgabe02_lydia;
 
 /**
  * @author Lucas Anders, Lydia Pflug
+ * @date 06.10.2016
  * Das Skript ruft alle Methoden mehrfach auf, da dies aussagekraeftiger ist als ein einziger Aufruf
  */
 public class RuntimeScript {

@@ -1,5 +1,11 @@
 package aufgabe02_lydia;
 
+/**
+ * @author Lydia Pflug, Lucas Anders
+ * @date 06.10.2016
+ *
+ */
+
 public class PufferArrayImpl extends PufferArray {
 	
 	public PufferArrayImpl(int kapazitaet) {

@@ -3,7 +3,8 @@ package aufgabe02_lydia;
 import java.lang.reflect.Method;
 
 /**
- * @author lucas_anders, Lydia Pflug
+ * @author Lucas Anders, Lydia Pflug
+ * @date 06.10.2016
  * Die Klasse beinhaltet Wrappermethoden, die die eigentliche Methode aufrufen und deren Laufzeit zurückgibt.
  */
 public class LaufzeiterfassungLinkedList {
