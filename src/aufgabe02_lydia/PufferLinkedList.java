@@ -1,6 +1,6 @@
 package aufgabe02_lydia;
 
-import java.util.Collection;
+import java.util.LinkedList;
 
 /**
  * @author Lydia Pflug, Lucas Anders
@@ -10,7 +10,7 @@ import java.util.Collection;
 
 abstract class PufferLinkedList {
 	
-	Collection<Object> puffer;
+	LinkedList<Object> puffer;
 	int kapazitaet;
 	int oberstesElement;
 	int letztesElement;
@@ -99,9 +99,6 @@ abstract class PufferLinkedList {
 		int enthalteneElementeVorher = inhalt();
 		int indexLetzesElementeVorher = letztesElement;
 		removeImpl(data);
-		System.out.println("letztesElement: " + letztesElement);
-		System.out.println("puffer.size()-1: " + (puffer.size()-1));
-		System.out.println("oberstesElement: " + oberstesElement);
 		assert((enthalteneElementeVorher - 1 == inhalt()) && 
 				(indexLetzesElementeVorher - 1 == letztesElement || 
 				indexLetzesElementeVorher == letztesElement ||

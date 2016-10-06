@@ -1,7 +1,5 @@
 package aufgabe02_lydia;
 
-import java.util.Arrays;
-
 /**
  * @author Lydia Pflug, Lucas Anders
  * @date 26.09.2016

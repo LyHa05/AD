@@ -1,9 +1,6 @@
 package aufgabe02_lydia;
 
 import static org.junit.Assert.*;
-
-import java.util.Arrays;
-
 import org.junit.Before;
 import org.junit.Test;
 import aufgabe02_lydia.PufferLinkedListImpl;
@@ -188,7 +185,6 @@ public class JUnitPufferLinkedList {
 		puffer.add(5);
 		assertSame(1,puffer.oberstesElement);
 		assertSame(0,puffer.letztesElement);
-		System.out.println("______________");
 		puffer.remove(3);
 		assertSame(1,puffer.oberstesElement);
 		assertSame(4,puffer.letztesElement);	
@@ -212,14 +208,11 @@ public class JUnitPufferLinkedList {
 		puffer.add(5);
 		puffer.add(6);
 		puffer.add(7);
-		System.out.println("____________");
-		System.out.println(puffer.toString());
 		assertSame(3,puffer.oberstesElement);
 		assertSame(2,puffer.letztesElement);
 		puffer.remove(4);
 		assertSame(3,puffer.oberstesElement);
 		assertSame(1,puffer.letztesElement);
-		System.out.println(puffer.toString());
 	}
 
 	/**
